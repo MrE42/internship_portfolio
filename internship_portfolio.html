@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elijah Schoneweis — LI-COR Internship Portfolio</title>
+  <meta name="description" content="Internship portfolio for Elijah Schoneweis — Applications Analyst Intern at LI-COR Biosciences.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config for dark mode classes
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <style>
+    .pill { @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sm; }
+    .card { @apply border border-zinc-200/70 dark:border-zinc-800/60 rounded-2xl bg-white dark:bg-zinc-900; }
+    .prose p { @apply leading-7 text-zinc-700 dark:text-zinc-300; }
+    .prose li { @apply text-zinc-700 dark:text-zinc-300; }
+    .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium bg-emerald-600 text-white hover:bg-emerald-700; }
+    .btn-outline { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800; }
+    .badge { @apply inline-flex rounded-full border px-2.5 py-0.5 text-xs border-zinc-300 dark:border-zinc-700; }
+    .section { scroll-margin-top: 96px; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-50">
+  <script>
+    // Simple dark mode toggle persistence
+    const dm = localStorage.getItem('dark') === 'true';
+    document.documentElement.classList.toggle('dark', dm);
+  </script>
+
+  <!-- Header -->
+  <header id="top" class="sticky top-0 z-50 border-b border-zinc-200/70 dark:border-zinc-800/60 bg-white/85 dark:bg-zinc-900/70 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500"></div>
+          <div>
+            <p class="text-xs uppercase tracking-widest text-zinc-500">LI-COR Internship</p>
+            <h1 class="text-base font-semibold">Elijah Schoneweis — Applications Analyst Intern</h1>
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-4 text-sm">
+          <a class="hover:text-emerald-600" href="#overview">Overview</a>
+          <a class="hover:text-emerald-600" href="#role">Role</a>
+          <a class="hover:text-emerald-600" href="#projects">Highlights</a>
+          <a class="hover:text-emerald-600" href="#learning">Learning</a>
+          <a class="hover:text-emerald-600" href="#advice">Advice</a>
+          <a class="hover:text-emerald-600" href="#gallery">Gallery</a>
+          <a class="hover:text-emerald-600" href="#contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button id="toggleDark" class="btn-outline text-sm" aria-label="Toggle dark mode">
+            <span id="dmLabel">Dark</span> mode
+          </button>
+          <a href="#contact" class="btn">Connect</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+      <div class="card lg:col-span-2 p-6">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="pill">Scientific Software</span>
+          <span class="pill">Data Visualization</span>
+          <span class="pill">UX Collaboration</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">
+          Building intuitive tools to turn complex analyzer data into decisions.
+        </h2>
+        <p class="mt-3 text-zinc-600 dark:text-zinc-300">
+          This portfolio shares my work modernizing LI-COR support workflows—automating TGA data parsing,
+          highlighting instrument warm-up/run states, and designing a GUI that surfaces the signals technicians need.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <span class="badge">Python</span>
+          <span class="badge">Matplotlib</span>
+          <span class="badge">Tkinter GUI</span>
+          <span class="badge">Data Pipelines</span>
+          <span class="badge">Accessibility</span>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects" class="btn">See Highlights</a>
+          <a href="#" class="btn-outline">Download One-Pager (PDF)</a>
+        </div>
+      </div>
+      <div class="card p-6 relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 opacity-20"
+             style="background: radial-gradient(ellipse at top left, rgba(16,185,129,.35), transparent 50%), radial-gradient(ellipse at bottom right, rgba(59,130,246,.35), transparent 50%);"></div>
+        <h3 class="mb-2 font-semibold">Quick Facts</h3>
+        <ul class="space-y-3 text-sm">
+          <li>Automated parsing & visualization for gas analyzer TGA files.</li>
+          <li>Implemented warm-up/startup vs. running span detection with adjustable thresholds.</li>
+          <li>Reduced manual Excel work with purpose-built tooling and UX feedback loops.</li>
+        </ul>
+        <hr class="my-4 border-zinc-200/70 dark:border-zinc-800/60">
+        <div class="flex items-center gap-3 text-sm">
+          <a class="hover:text-emerald-600" href="#" aria-label="GitHub link">GitHub</a>
+          <a class="hover:text-emerald-600" href="#" aria-label="LinkedIn link">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 space-y-12 pb-16">
+    <!-- Overview -->
+    <section id="overview" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">Overview</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Context for non-experts: what LI-COR does, and what problem I set out to solve.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <div class="prose max-w-none">
+        <p>LI-COR Biosciences builds scientific instruments that measure gases like CO₂ and H₂O in environmental research. These instruments output large time-series files (TGA) that technicians review to verify performance and troubleshoot issues. Historically, this review required reformatting data in Excel and hand-building multiple charts—time-consuming, inconsistent, and hard to repeat.</p>
+        <p>My project replaces that manual process with a dedicated tool that ingests files, applies domain-specific logic (e.g., detecting warm-up vs. running), and renders clear visual summaries so support engineers can act quickly.</p>
+      </div>
+    </section>
+
+    <!-- Role -->
+    <section id="role" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">Role & Day-to-Day</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">How I worked across coding, UX, and collaboration.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Develop:</strong> Python pipelines to parse, validate, and visualize TGA data with Matplotlib.</li>
+        <li><strong>Design:</strong> A GUI that exposes the right controls (thresholds, filters, spans) without overwhelming users.</li>
+        <li><strong>Collaborate:</strong> Weekly feedback loops with support engineers to test with real files and iterate quickly.</li>
+        <li><strong>Validate:</strong> Edge-case handling (invalid spans, restarts, temperature thresholds) to keep charts trustworthy.</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">Project Highlights</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">A few focused wins that made the team’s workflow faster.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card p-4">
+          <h4 class="font-semibold">Warm-up/Running Spans</h4>
+          <p class="text-sm mt-1 text-zinc-600 dark:text-zinc-300">Shaded bands with adjustable thresholds. Auto-detect startup (laser cavity/enclosure heating) and running states; prune invalid spans; let users tune rules without re-parsing.</p>
+        </div>
+        <div class="card p-4">
+          <h4 class="font-semibold">One-Click Visuals</h4>
+          <p class="text-sm mt-1 text-zinc-600 dark:text-zinc-300">Purpose-built charts beat ad-hoc Excel. Generate consistent plots for common diagnostics and highlight only actionable trends.</p>
+        </div>
+        <div class="card p-4">
+          <h4 class="font-semibold">Human-Centered Tweaks</h4>
+          <p class="text-sm mt-1 text-zinc-600 dark:text-zinc-300">Surface the controls the team actually uses (threshold sliders, span toggles), improve labeling, and add tooltips for clarity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning -->
+    <section id="learning" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">What I Learned & How It Transfers</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Reflection tied to future contexts.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Translate complexity:</strong> Turn raw sensor data into insights for non-experts—vital for any product role.</li>
+        <li><strong>Iterate with users:</strong> Early, frequent feedback prevents over-engineering and accelerates delivery.</li>
+        <li><strong>Own ambiguity:</strong> Break open-ended problems into testable pieces; document decisions for repeatability.</li>
+        <li><strong>Quality mindset:</strong> Validate against edge cases so outputs are trusted in real support scenarios.</li>
+      </ul>
+      <p class="mt-3 text-zinc-700 dark:text-zinc-300">These habits transfer directly to future software roles—especially where domain expertise and UX meet (scientific tools, data platforms, instrumentation).</p>
+    </section>
+
+    <!-- Advice -->
+    <section id="advice" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">Advice for Future Interns</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Concrete tips I wish I had on day one.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <ol class="list-decimal pl-6 space-y-2">
+        <li><strong>Start with the user.</strong> Shadow support workflows; collect pain points before designing features.</li>
+        <li><strong>Prototype fast.</strong> Ship a scrappy chart or toggle; validate direction before polishing.</li>
+        <li><strong>Name edge cases.</strong> Define warm-up/running logic early; write test files that trigger failures.</li>
+        <li><strong>Document decisions.</strong> A lightweight changelog saves the team (and future you) hours.</li>
+      </ol>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">Gallery & Captions</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Add images with alt text for accessibility.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-300">Replace the placeholders below with your own screenshots/photos. Include descriptive alt text.</p>
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Repeatable gallery item -->
+        <figure class="rounded-xl overflow-hidden border border-zinc-200/70 dark:border-zinc-800/60">
+          <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 grid place-items-center">
+            <span class="text-zinc-400">Image 1 placeholder</span>
+          </div>
+          <figcaption class="p-3 text-sm">
+            <strong>Caption 1:</strong> Brief description of what’s shown and why it matters.
+          </figcaption>
+        </figure>
+        <figure class="rounded-xl overflow-hidden border border-zinc-200/70 dark:border-zinc-800/60">
+          <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 grid place-items-center">
+            <span class="text-zinc-400">Image 2 placeholder</span>
+          </div>
+          <figcaption class="p-3 text-sm">
+            <strong>Caption 2:</strong> Brief description of what’s shown and why it matters.
+          </figcaption>
+        </figure>
+        <figure class="rounded-xl overflow-hidden border border-zinc-200/70 dark:border-zinc-800/60">
+          <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 grid place-items-center">
+            <span class="text-zinc-400">Image 3 placeholder</span>
+          </div>
+          <figcaption class="p-3 text-sm">
+            <strong>Caption 3:</strong> Brief description of what’s shown and why it matters.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">Contact & Feedback</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Optional contact area for viewer feedback.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-zinc-600 dark:text-zinc-300">Have questions about my internship or want to see a demo? Reach out below.</p>
+          <form class="mt-4 space-y-3" onsubmit="event.preventDefault(); alert('Demo only — replace with your contact method.');">
+            <input class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 px-3 py-2 bg-white dark:bg-zinc-800" placeholder="Your name">
+            <input class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 px-3 py-2 bg-white dark:bg-zinc-800" placeholder="Your email" type="email">
+            <textarea class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 px-3 py-2 bg-white dark:bg-zinc-800" rows="4" placeholder="Message"></textarea>
+            <button class="btn" type="submit">Send</button>
+          </form>
+          <p class="mt-3 text-xs text-zinc-500">This form is a visual demo (no backend). Replace with your preferred contact method.</p>
+        </div>
+        <div class="card p-4">
+          <h4 class="font-semibold">One-Pager Download</h4>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Use this summary for submissions or quick sharing.</p>
+          <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
+            <li>Role: Applications Analyst Intern, LI-COR Biosciences</li>
+            <li>Focus: TGA data automation, span detection, UX-driven visuals</li>
+            <li>Toolkit: Python, Matplotlib, Tkinter, CSV/TGA parsing</li>
+            <li>Outcome: Faster diagnostics, reduced manual Excel work</li>
+            <li>Transfer: User-centered engineering, reliable data storytelling</li>
+          </ul>
+          <a class="btn-outline mt-4 inline-flex" href="#">Download PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-zinc-200/70 dark:border-zinc-800/60">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-zinc-500">
+      <p>© <span id="year"></span> Elijah Schoneweis</p>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-emerald-600" href="#">GitHub</a>
+        <a class="hover:text-emerald-600" href="#">LinkedIn</a>
+        <a class="hover:text-emerald-600" href="mailto:example@email.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('toggleDark');
+    const lab = document.getElementById('dmLabel');
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('dark', isDark ? 'true' : 'false');
+      lab.textContent = isDark ? 'Light' : 'Dark';
+    });
+    // sync label initial
+    lab.textContent = document.documentElement.classList.contains('dark') ? 'Light' : 'Dark';
+  </script>
+</body>
+</html>
