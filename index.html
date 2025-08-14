@@ -5,67 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Elijah Schoneweis — LI-COR Internship Portfolio</title>
   <meta name="description" content="Internship portfolio for Elijah Schoneweis — Applications Analyst Intern at LI-COR Biosciences.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Tailwind config for dark mode classes
-    tailwind.config = { darkMode: 'class' }
-  </script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
   <style>
-    .pill { @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-medium bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sm; }
-    .card { @apply border border-zinc-200/70 dark:border-zinc-800/60 rounded-2xl bg-white dark:bg-zinc-900; }
-    .prose p { @apply leading-7 text-zinc-700 dark:text-zinc-300; }
-    .prose li { @apply text-zinc-700 dark:text-zinc-300; }
-    .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium bg-emerald-600 text-white hover:bg-emerald-700; }
-    .btn-outline { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800; }
-    .badge { @apply inline-flex rounded-full border px-2.5 py-0.5 text-xs border-zinc-300 dark:border-zinc-700; }
+    .card { border: 1px solid rgba(0,0,0,.08); border-radius: 1rem; background: white; }
+    .dark .card { background: #0a0a0a; border-color: rgba(255,255,255,.08); }
+    .badge { display:inline-flex; border-radius: 9999px; border: 1px solid rgba(0,0,0,.15); padding: .125rem .625rem; font-size: .75rem; }
+    .dark .badge { border-color: rgba(255,255,255,.15); }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; border-radius: .75rem; padding: .5rem 1rem; font-weight:600; background:#10b981; color:white; }
+    .btn:hover { background:#059669; }
+    .btn-outline { display:inline-flex; align-items:center; gap:.5rem; border-radius: .75rem; padding: .5rem 1rem; border:1px solid #d1d5db; }
+    .dark .btn-outline { border-color:#3f3f46; }
     .section { scroll-margin-top: 96px; }
+    .shot { width: 100%; height: 420px; object-fit: contain; background: white; }
+    .dark .shot { background: #0b0b0b; }
+    .frame { border: 1px solid rgba(0,0,0,.08); box-shadow: 0 1px 8px rgba(0,0,0,.06); }
+    .dark .frame { border-color: rgba(255,255,255,.08); box-shadow: 0 1px 8px rgba(0,0,0,.25); }
+    figcaption { font-size: .9rem; }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900 text-zinc-900 dark:text-zinc-50">
   <script>
-    // Simple dark mode toggle persistence
     const dm = localStorage.getItem('dark') === 'true';
     document.documentElement.classList.toggle('dark', dm);
   </script>
 
-  <!-- Header -->
+  <!-- Header with dropdown menu -->
   <header id="top" class="sticky top-0 z-50 border-b border-zinc-200/70 dark:border-zinc-800/60 bg-white/85 dark:bg-zinc-900/70 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="flex h-16 items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500"></div>
-          <div>
+      <div class="flex h-16 items-center justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <img src="assets/logo.png" alt="LI-COR logo" class="h-8 w-auto flex-none">
+          <div class="truncate">
             <p class="text-xs uppercase tracking-widest text-zinc-500">LI-COR Internship</p>
-            <h1 class="text-base font-semibold">Elijah Schoneweis — Applications Analyst Intern</h1>
+            <h1 class="text-base font-semibold truncate">Elijah Schoneweis — Applications Analyst Intern</h1>
           </div>
         </div>
-        <nav class="hidden md:flex items-center gap-4 text-sm">
-          <a class="hover:text-emerald-600" href="#overview">Overview</a>
-          <a class="hover:text-emerald-600" href="#role">Role</a>
-          <a class="hover:text-emerald-600" href="#projects">Highlights</a>
-          <a class="hover:text-emerald-600" href="#learning">Learning</a>
-          <a class="hover:text-emerald-600" href="#advice">Advice</a>
-          <a class="hover:text-emerald-600" href="#gallery">Gallery</a>
-          <a class="hover:text-emerald-600" href="#contact">Contact</a>
-        </nav>
-        <div class="flex items-center gap-3">
+
+        <div class="flex items-center gap-2">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button id="menuBtn" class="btn-outline text-sm" aria-haspopup="true" aria-expanded="false" aria-controls="mainMenu">
+              Menu
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div id="mainMenu" class="invisible opacity-0 translate-y-1 transition-all duration-150 absolute right-0 mt-2 w-56 rounded-xl border border-zinc-200/70 dark:border-zinc-800/60 bg-white dark:bg-zinc-900 shadow-lg focus:outline-none" role="menu" aria-label="Main">
+              <div class="py-1 text-sm">
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#overview" role="menuitem">Overview</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#role" role="menuitem">Role</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#projects" role="menuitem">Highlights</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#learning" role="menuitem">Learning</a>
+                <div class="border-t border-zinc-200/70 dark:border-zinc-800/60 my-1"></div>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#vis7800" role="menuitem">7800_vis</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#sim7500" role="menuitem">7500_sim</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#cora" role="menuitem">CORA</a>
+                <div class="border-t border-zinc-200/70 dark:border-zinc-800/60 my-1"></div>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#inmywords" role="menuitem">In My Words</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#advice" role="menuitem">Advice</a>
+                <a class="block px-3 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/30" href="#contact" role="menuitem">Contact</a>
+              </div>
+            </div>
+          </div>
+
           <button id="toggleDark" class="btn-outline text-sm" aria-label="Toggle dark mode">
             <span id="dmLabel">Dark</span> mode
           </button>
-          <a href="#contact" class="btn">Connect</a>
+          <a href="#contact" class="btn hidden sm:inline-flex">Connect</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Page content trimmed for brevity in this build; reusing v6 structure -->
   <div class="mx-auto max-w-6xl px-4 sm:px-6 py-10">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-      <div class="card lg:col-span-2 p-6">
+      <div class="card p-6 lg:col-span-2">
         <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="pill">Scientific Software</span>
-          <span class="pill">Data Visualization</span>
-          <span class="pill">UX Collaboration</span>
+          <span class="badge">Scientific Software</span>
+          <span class="badge">Data Visualization</span>
+          <span class="badge">UX Collaboration</span>
         </div>
         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">
           Building intuitive tools to turn complex analyzer data into decisions.
@@ -83,7 +104,7 @@
         </div>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#projects" class="btn">See Highlights</a>
-          <a href="#" class="btn-outline">Download One-Pager (PDF)</a>
+          <button class="btn-outline" disabled title="Private for submission">Download One‑Pager (Private)</button>
         </div>
       </div>
       <div class="card p-6 relative overflow-hidden">
@@ -95,17 +116,12 @@
           <li>Implemented warm-up/startup vs. running span detection with adjustable thresholds.</li>
           <li>Reduced manual Excel work with purpose-built tooling and UX feedback loops.</li>
         </ul>
-        <hr class="my-4 border-zinc-200/70 dark:border-zinc-800/60">
-        <div class="flex items-center gap-3 text-sm">
-          <a class="hover:text-emerald-600" href="#" aria-label="GitHub link">GitHub</a>
-          <a class="hover:text-emerald-600" href="#" aria-label="LinkedIn link">LinkedIn</a>
-        </div>
       </div>
     </div>
   </div>
 
-  <main class="mx-auto max-w-6xl px-4 sm:px-6 space-y-12 pb-16">
-    <!-- Overview -->
+  <!-- The rest of content is same as v6 but without Gallery section -->
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 space-y-12 pb-16 pt-8">
     <section id="overview" class="section card p-6">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -120,7 +136,6 @@
       </div>
     </section>
 
-    <!-- Role -->
     <section id="role" class="section card p-6">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -137,7 +152,6 @@
       </ul>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="section card p-6">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -162,7 +176,6 @@
       </div>
     </section>
 
-    <!-- Learning -->
     <section id="learning" class="section card p-6">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -180,7 +193,99 @@
       <p class="mt-3 text-zinc-700 dark:text-zinc-300">These habits transfer directly to future software roles—especially where domain expertise and UX meet (scientific tools, data platforms, instrumentation).</p>
     </section>
 
-    <!-- Advice -->
+    <section id="vis7800" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">7800_vis — Data Viewer for LI‑7800</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Automates TGA parsing and makes warm‑up/run states obvious.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <p class="text-sm text-zinc-700 dark:text-zinc-300 mb-4">Support engineers historically opened TGA files in Excel and built multiple charts by hand. I created a Python/Tkinter viewer that ingests files, detects startup vs. running spans, and highlights only the signals that matter—cutting review time and improving consistency.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/gallery_startup_running_periods.png" alt="LI-7800 plot with shaded startup and running periods across H2O, CO2, CH4." class="shot">
+          <figcaption class="p-3"><strong>Startup vs. Running:</strong> Auto-detected spans with user‑tunable thresholds keep analysis focused on valid regions.</figcaption>
+        </figure>
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/gallery_stats_panel.png" alt="Statistics panel listing mean/min/max and compliance counts." class="shot">
+          <figcaption class="p-3"><strong>Live Segment Stats:</strong> Per‑variable metrics and compliance counts update with viewport/filters.</figcaption>
+        </figure>
+      </div>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/gallery_config_editor.png" alt="Configuration editor for typical/absolute ranges, autoplots." class="shot">
+          <figcaption class="p-3"><strong>Config Editor:</strong> Set typical/absolute ranges and toggle autoplots—no code changes needed.</figcaption>
+        </figure>
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/gallery_plot_options.png" alt="Plot options for line thickness, outlier handling, gap thresholds." class="shot">
+          <figcaption class="p-3"><strong>Plot Options:</strong> Fine‑tune line weight, outliers, gaps, and span thresholds.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="sim7500" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">7500_sim — Simulator for LI‑7500 Series</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Deterministic simulator to test pipelines and compare outputs to original datasets.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <p class="text-sm text-zinc-700 dark:text-zinc-300 mb-4">When devices aren’t always on‑hand, developers need reliable stand‑ins. I built a simulator that consumes L7X + data/GHG files, generates outputs, and compares against source data to quantify fidelity.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/7500_sim_ui.png" alt="7500 simulator UI showing file pickers, options, and Run Simulation button." class="shot">
+          <figcaption class="p-3"><strong>Run Inputs:</strong> Select L7X + GHG data and enable options (smoothing, diff‑to‑original) before executing.</figcaption>
+        </figure>
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/7500_sim_results.png" alt="Results window with aggregated differences (means, max deltas, slopes) for CO2/H2O metrics." class="shot">
+          <figcaption class="p-3"><strong>Accuracy Report:</strong> Aggregated deltas and regression fits verify simulator fidelity per metric.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="cora" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">CORA — Internal AI Assistant</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Chat interface + metrics to help employees find answers faster.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <p class="text-sm text-zinc-700 dark:text-zinc-300 mb-4">I contributed to an internal chatbot (CORA) and built metrics using Prometheus → Grafana to monitor adoption and usage. Work included prompt/UX tweaks, knowledge curation, and basic governance notes for safe internal use.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/cora_ui.png" alt="CORA chat interface with input box and minimal chrome." class="shot">
+          <figcaption class="p-3"><strong>Chat UI:</strong> Minimal interface emphasizes quick questions and internal‑only guidance.</figcaption>
+        </figure>
+        <figure class="frame rounded-xl overflow-hidden">
+          <img src="assets/cora_grafana.png" alt="Grafana dashboard chart showing active users and daily unique users over time." class="shot">
+          <figcaption class="p-3"><strong>Adoption Trend:</strong> Prometheus counters surfaced in Grafana (active vs. daily unique users).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="inmywords" class="section card p-6">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <h3 class="text-xl font-semibold">In My Words</h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">Two short reflections from my internship experience.</p>
+        </div>
+        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
+      </div>
+      <div class="space-y-4">
+        <article class="card p-4">
+          <h4 class="font-semibold">Problem Solving</h4>
+          <p class="text-sm mt-2 text-zinc-700 dark:text-zinc-300">As I approached my final semester at UNL, I joined LI-COR as an Applications Analyst Intern with a strong academic foundation from my capstone and thesis projects. Even so, I encountered challenges that pushed me to think creatively and problem-solve in new ways. One of the most significant was designing a faster, more effective way for the support team to view and analyze TGA data from our gas analyzers. Their workflow required opening files in Excel, reformatting them, and manually creating multiple charts—tedious and time-consuming. My goal became clear: automate the process so their daily work would be noticeably more efficient.</p>
+        </article>
+        <article class="card p-4">
+          <h4 class="font-semibold">Professional Identity</h4>
+          <p class="text-sm mt-2 text-zinc-700 dark:text-zinc-300">My primary responsibilities involved building custom software solutions for our customers and meeting regularly with my team to align on goals for the final product. This work has been heavily Python-based, which allowed me to expand my knowledge of libraries and find the best tools for each challenge. While some tasks—like bug fixing—were routine, the most rewarding moments came when building something new from scratch. The casual, collaborative work environment made it easy to exchange ideas, stay flexible, and integrate feedback, reinforcing my interest in working at the intersection of technical problem solving and teamwork.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="advice" class="section card p-6">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -192,51 +297,11 @@
       <ol class="list-decimal pl-6 space-y-2">
         <li><strong>Start with the user.</strong> Shadow support workflows; collect pain points before designing features.</li>
         <li><strong>Prototype fast.</strong> Ship a scrappy chart or toggle; validate direction before polishing.</li>
-        <li><strong>Name edge cases.</strong> Define warm-up/running logic early; write test files that trigger failures.</li>
+        <li><strong>Name edge cases.</strong> Define logic for features early; write test files that trigger failures.</li>
         <li><strong>Document decisions.</strong> A lightweight changelog saves the team (and future you) hours.</li>
       </ol>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="section card p-6">
-      <div class="flex items-center justify-between mb-3">
-        <div>
-          <h3 class="text-xl font-semibold">Gallery & Captions</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">Add images with alt text for accessibility.</p>
-        </div>
-        <a href="#top" class="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-200">Back to top</a>
-      </div>
-      <p class="text-sm text-zinc-600 dark:text-zinc-300">Replace the placeholders below with your own screenshots/photos. Include descriptive alt text.</p>
-      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Repeatable gallery item -->
-        <figure class="rounded-xl overflow-hidden border border-zinc-200/70 dark:border-zinc-800/60">
-          <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 grid place-items-center">
-            <span class="text-zinc-400">Image 1 placeholder</span>
-          </div>
-          <figcaption class="p-3 text-sm">
-            <strong>Caption 1:</strong> Brief description of what’s shown and why it matters.
-          </figcaption>
-        </figure>
-        <figure class="rounded-xl overflow-hidden border border-zinc-200/70 dark:border-zinc-800/60">
-          <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 grid place-items-center">
-            <span class="text-zinc-400">Image 2 placeholder</span>
-          </div>
-          <figcaption class="p-3 text-sm">
-            <strong>Caption 2:</strong> Brief description of what’s shown and why it matters.
-          </figcaption>
-        </figure>
-        <figure class="rounded-xl overflow-hidden border border-zinc-200/70 dark:border-zinc-800/60">
-          <div class="aspect-video bg-zinc-100 dark:bg-zinc-800 grid place-items-center">
-            <span class="text-zinc-400">Image 3 placeholder</span>
-          </div>
-          <figcaption class="p-3 text-sm">
-            <strong>Caption 3:</strong> Brief description of what’s shown and why it matters.
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- Contact -->
     <section id="contact" class="section card p-6">
       <div class="flex items-center justify-between mb-3">
         <div>
@@ -254,19 +319,11 @@
             <textarea class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 px-3 py-2 bg-white dark:bg-zinc-800" rows="4" placeholder="Message"></textarea>
             <button class="btn" type="submit">Send</button>
           </form>
-          <p class="mt-3 text-xs text-zinc-500">This form is a visual demo (no backend). Replace with your preferred contact method.</p>
+          <p class="mt-3 text-xs text-zinc-500">This form is a visual demo (no backend).</p>
         </div>
         <div class="card p-4">
-          <h4 class="font-semibold">One-Pager Download</h4>
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">Use this summary for submissions or quick sharing.</p>
-          <ul class="list-disc pl-5 text-sm space-y-1 mt-2">
-            <li>Role: Applications Analyst Intern, LI-COR Biosciences</li>
-            <li>Focus: TGA data automation, span detection, UX-driven visuals</li>
-            <li>Toolkit: Python, Matplotlib, Tkinter, CSV/TGA parsing</li>
-            <li>Outcome: Faster diagnostics, reduced manual Excel work</li>
-            <li>Transfer: User-centered engineering, reliable data storytelling</li>
-          </ul>
-          <a class="btn-outline mt-4 inline-flex" href="#">Download PDF</a>
+          <h4 class="font-semibold">Notes</h4>
+          <p class="text-sm text-zinc-600 dark:text-zinc-300">This was built for the UHON 99H Final Project. While this will be publicly accessible for a time, it will be removed eventually.</p>
         </div>
       </div>
     </section>
@@ -276,14 +333,13 @@
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-zinc-500">
       <p>© <span id="year"></span> Elijah Schoneweis</p>
       <div class="flex items-center gap-4">
-        <a class="hover:text-emerald-600" href="#">GitHub</a>
-        <a class="hover:text-emerald-600" href="#">LinkedIn</a>
-        <a class="hover:text-emerald-600" href="mailto:example@email.com">Email</a>
+        <a class="hover:text-emerald-600" href="https://github.com/MrE42">GitHub</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Dark mode
     document.getElementById('year').textContent = new Date().getFullYear();
     const btn = document.getElementById('toggleDark');
     const lab = document.getElementById('dmLabel');
@@ -292,8 +348,19 @@
       localStorage.setItem('dark', isDark ? 'true' : 'false');
       lab.textContent = isDark ? 'Light' : 'Dark';
     });
-    // sync label initial
     lab.textContent = document.documentElement.classList.contains('dark') ? 'Light' : 'Dark';
+
+    // Dropdown menu
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mainMenu');
+    const openMenu = () => { menu.classList.remove('invisible','opacity-0','translate-y-1'); menu.classList.add('opacity-100','translate-y-0'); menuBtn.setAttribute('aria-expanded','true'); };
+    const closeMenu = () => { menu.classList.add('invisible'); setTimeout(()=>menu.classList.add('opacity-0','translate-y-1'),0); menu.classList.remove('opacity-100','translate-y-0'); menuBtn.setAttribute('aria-expanded','false'); };
+    let isOpen = false;
+    function toggleMenu(){ isOpen ? closeMenu() : openMenu(); isOpen=!isOpen; }
+    menuBtn.addEventListener('click', toggleMenu);
+    document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !menuBtn.contains(e.target) && isOpen) {{ toggleMenu(); }} });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && isOpen) {{ toggleMenu(); }} });
+    Array.from(menu.querySelectorAll('a')).forEach(a => a.addEventListener('click', ()=>{ if(isOpen) toggleMenu(); }));
   </script>
 </body>
 </html>
